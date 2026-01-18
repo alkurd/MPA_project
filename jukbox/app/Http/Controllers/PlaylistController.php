@@ -38,16 +38,18 @@ class PlaylistController extends Controller
         // $minuten  = floor($totaal / 60);
         // $seconden = $totaal % 60;
         // $tijd = $minuten .':'.str_pad($seconden,2,'0',STR_PAD_LEFT);
-        return view('index.$playlist',compact('playlist', 'tijd'));
+        return view(' playlist.index',compact('playlist', 'tijd'));
     }
     public function delete($index){
         $playlist =session()->get('playlist',[]);
         if(isset($playlist[$index])){
             unset($playlist[$index]);
-            $playlist = array_values($playlist);
+            // $playlist = array_values($playlist);
             session()->put('playlist',$playlist);
         }
-        return redirect()->route('playlist.index')->with('danger','nummer is verwijdert');
+        return redirect()
+        ->route('playlist.index')
+        ->with('info','nummer is verwijdert');
 
     }
 }

@@ -28,7 +28,10 @@ Route::get('/genres/{genre}', [GenreController::class, 'show'])->name('genres.sh
 // Detailpagina van een specifiek liedje
 Route::get('/songs/{song}', [SongController::class, 'show'])->name('songs.show');
 use App\Http\Controllers\PlaylistController;
-
+Route::get('/playlist', [PlaylistController::class, 'index'])->name('playlist.index');
 Route::post('/playlist/add/{id}', [PlaylistController::class, 'add'])->name('playlist.add');
+Route::delete('/playlist/{id}', [PlaylistController::class, 'delete'])
+    ->name('playlist.delete');
+
 
 require __DIR__.'/auth.php';
