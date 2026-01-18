@@ -29,7 +29,10 @@
             <tr>
                 <td>{{ $song->naam }}</td>
                 <td>{{ $song->artist }}</td>
-                <td>{{ floor($song->duration / 60) }}:{{ str_pad($song->duration % 60, 2, '0', STR_PAD_LEFT) }}</td>
+                {{-- <td>{{ floor($song->duration / 60) }}:{{ str_pad($song->duration % 60, 2, '0', STR_PAD_LEFT) }}</td> --}}
+                <td >
+                        {{ gmdate('i:s', $song['duration']) }}
+                    </td>
                 <td>
                     <form action="{{ route('playlist.add', $song->id) }}" method="POST">
                         @csrf

@@ -34,9 +34,10 @@ class PlaylistController extends Controller
         foreach($playlist as $song){
             $totaal += $song['duration'];
         }
-        $minuten  = floor($totaal / 60);
-        $seconden = $totaal % 60;
-        $tijd = $minuten .':'.str_pad($seconden,2,'0',STR_PAD_LEFT);
+        $tijd = gmdate("i:s");
+        // $minuten  = floor($totaal / 60);
+        // $seconden = $totaal % 60;
+        // $tijd = $minuten .':'.str_pad($seconden,2,'0',STR_PAD_LEFT);
         return view('index.$playlist',compact('playlist', 'tijd'));
     }
     public function delete($index){
