@@ -3,7 +3,7 @@
 
 @section('content')
 <h2 class="page-title">Alle Genres</h2>
-<a href="{{ route('playlist.index') }}">{{ 'Playlist' }}</a>
+<a class="back-link" href="{{ route('playlist.index') }}">{{ 'Playlist' }}</a>
 
 <div class="genre-list">
     <ul>

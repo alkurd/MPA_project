@@ -36,9 +36,14 @@
                 <td>
                     <form action="{{ route('playlist.add', $song->id) }}" method="POST">
                         @csrf
-                        <button type="submit" class="bg-green-500 text-white px-3 py-1 rounded">
+                        <button type="submit" >
                             + Toevoegen
                         </button>
+                        @auth
+                            <section>
+                                <option></option>
+                            </section>
+                        @endauth
                     </form>
                 </td>
             </tr>
@@ -46,7 +51,7 @@
         </tbody>
     </table>
 
-    <a href="{{ route('genres.index') }}" class="back-link">← Terug naar genres</a>
+    <a href="{{ route('genres') }}" class="back-link">← Terug naar genres</a>
 </div>
 @endsection
 

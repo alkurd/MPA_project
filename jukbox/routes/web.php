@@ -20,7 +20,7 @@ Route::middleware('auth')->group(function () {
 });
 
 // Overzicht van alle genres
-Route::get('/genres', [GenreController::class, 'index'])->name('genres.index');
+Route::get('/genres', [GenreController::class, 'index'])->name('genres');
 
 // Overzicht van liedjes binnen een specifiek genre
 Route::get('/genres/{genre}', [GenreController::class, 'show'])->name('genres.show');

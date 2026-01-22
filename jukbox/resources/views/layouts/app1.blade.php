@@ -8,10 +8,31 @@
 <body>
 
 <header class="site-header">
-    <h1>Muziek Bibliotheek</h1>
-    <nav>
-        {{-- <a href="{{ route('genres.index') }}">Genres</a> --}}
-    </nav>
+    <h1 class="h1-header">Muziek Bibliotheek</h1>
+    {{-- @if(@guest)
+
+        <divb class="log-in" >
+            <a  href="{{ route('login') }}">Log in</a>
+            <a  href="{{ route('register') }}">Register</a>
+        </div>
+    @endguest) --}}
+@guest
+    <div class="log-in" >
+            <a  href="{{ route('login') }}">Log in</a>
+            <a  href="{{ route('register') }}">Register</a>
+        </div>
+@endguest
+@auth
+<div class="log-in" >
+<a href="{{route('profile.edit')}}"> Profile</a>
+<form method="post" action="{{ route('logout') }}">
+    @csrf
+    <button type="submit">Log out</button>
+</form>
+
+</div>
+@endauth
+
 </header>
 
 <main class="container">
