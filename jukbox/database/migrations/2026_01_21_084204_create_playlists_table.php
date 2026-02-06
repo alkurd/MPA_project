@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('naam');
             $table->timestamps();
         });
-        Schema::create('playlists_songs', function (Blueprint $table) {
+        Schema::create('playlist_songs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('playlist_id')->constrained()->onDelete('cascade');
             $table->foreignId('song_id')->constrained()->onDelete('cascade');
@@ -31,5 +31,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('playlists');
+        Schema::dropIfExists('playlist_songs');
     }
 };

@@ -9,16 +9,14 @@
 
 <header class="site-header">
     <h1 class="h1-header">Muziek Bibliotheek</h1>
-    {{-- @if(@guest)
-
-        <divb class="log-in" >
-            <a  href="{{ route('login') }}">Log in</a>
-            <a  href="{{ route('register') }}">Register</a>
-        </div>
-    @endguest) --}}
+    <input type="hidden" name="previous_url" value="{{ url()->current() }}">
 @guest
     <div class="log-in" >
-            <a  href="{{ route('login') }}">Log in</a>
+        <form method="GET" action="{{ route('login') }}">
+            <input type="hidden" value="{{ url()->current() }}">
+            <button type="submit">Log in</button>
+        </form>
+            {{-- <a  href="{{ route('login') }}">Log in</a> --}}
             <a  href="{{ route('register') }}">Register</a>
         </div>
 @endguest

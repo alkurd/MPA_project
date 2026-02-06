@@ -28,6 +28,10 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        if ($request->has('previous_url')) {
+        return redirect($request->input('previous_url'));
+    }
+
         return redirect()->intended(route('genres', absolute: false));
     }
 
@@ -42,6 +46,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/genres');
+        return back();
     }
 }

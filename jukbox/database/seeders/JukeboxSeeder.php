@@ -25,7 +25,7 @@ class JukeboxSeeder extends Seeder
             'genre_id' => $rock->id,
             'naam' => 'Bohemian Rhapsody',
             'artist' => 'Queen',
-            'duration' => 354 //seconden
+            'duration' => 354
         ]);
         Song::create([
             'genre_id' => $rock->id,

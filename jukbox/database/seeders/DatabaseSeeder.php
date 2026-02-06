@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             JukeboxSeeder::class
         ]);
+        
         // User::factory(10)->create();
 
         User::factory()->create([
